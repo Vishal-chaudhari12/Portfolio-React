@@ -48,7 +48,7 @@ export const Container = styled.section`
   .about-image{
     text-align: center;
    img{
-     margin-top: 2rem;
+     margin-top: 4rem;
      width: 50%;
      filter: grayscale(0);
      transition: filter 0.5s;

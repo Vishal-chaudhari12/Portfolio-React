@@ -11,11 +11,11 @@ export function Footer() {
   return (
     <Container className="footer">
       <a
-        href="https://www.linkedin.com/in/shivam-tiwari-b48a19271/"
+        href="https://www.linkedin.com/in/vishal-chaudhari-1b0637250/"
         className="logo"
       >
-        <span>www.devshivam</span>
-        <span>tiwari.in</span>
+        <span>www.vishal</span>
+        <span>chaudhari.in</span>
       </a>
       <div>
         <p>
@@ -25,26 +25,26 @@ export function Footer() {
       </div>
       <div className="social-media">
         <a
-          href="https://www.linkedin.com/in/shivam-tiwari-b48a19271/"
+          href="https://www.linkedin.com/in/vishal-chaudhari-1b0637250/"
           target="_blank"
           rel="noreferrer"
         >
           <img src={linkedin} alt="Linkedin" />
         </a>
-        <a href="https://github.com/shiv462/" target="_blank" rel="noreferrer">
+        <a href="https://github.com/Vishal-chaudhari12" target="_blank" rel="noreferrer">
           <img src={githubIcon} alt="GitHub" />
         </a>
         <a
-          href="https://api.whatsapp.com/send/"
+          href=""
           target="_blank"
           rel="noreferrer"
         >
           <img src={whatsapp} alt="Whatsapp" />
         </a>
-        <a href="https://t.me/" target="_blank" rel="noreferrer">
+        <a href="" target="_blank" rel="noreferrer">
           <img src={telegram} alt="telegram" />
         </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+        <a href="" target="_blank" rel="noreferrer">
           <img src={instagramIcon} alt="Instagram" />
         </a>
       </div>
