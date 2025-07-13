@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Container } from "./styles";
 import ScrollAnimation from "react-animate-on-scroll";
 import Illustration from "../../assets/Hero.jpg";
+import vishal from "../../assets/vishal.jpg";
 import { NavHashLink } from "react-router-hash-link";
 import linkedin from "../../assets/linkedin.svg";
 import githubIcon from "../../assets/github.svg";
@@ -64,7 +65,7 @@ export function Hero() {
       </div>
       <div className="hero-image">
         {/* <ScrollAnimation animateIn="fadeInRight" delay={1 * 1000}>
-          <img src={Illustration} alt="Ilustração" />
+          <img src={vishal} alt="Ilustração" />
         </ScrollAnimation> */}
       </div>
     </Container>

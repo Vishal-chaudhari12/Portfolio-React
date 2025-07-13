@@ -1,16 +1,47 @@
 import { Container } from "./styles";
 import githubIcon from "../../assets/github.svg";
-// import DownloadApp from '../../assets/download.png'
 import externalLink from "../../assets/external-link.svg";
 import ScrollAnimation from "react-animate-on-scroll";
+import { useState } from "react";
+
+// Background images for projects
+const projectBackgrounds = {
+  0: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Employee Management
+  1: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Ecommerce
+  2: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"  // Banking
+};
 
 export function Project() {
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+
+  const handleProjectHover = (index: number) => {
+    setHoveredProject(index);
+  };
+
+  const handleProjectLeave = () => {
+    setHoveredProject(null);
+  };
+
   return (
     <Container id="project">
-      <h2>My Projects</h2>
+      <ScrollAnimation animateIn="fadeInUp">
+        <h2>My Projects</h2>
+      </ScrollAnimation>
       <div className="projects">
         <ScrollAnimation animateIn="flipInX">
-          <div className="project">
+          <div 
+            className="project"
+            onMouseEnter={() => handleProjectHover(0)}
+            onMouseLeave={handleProjectLeave}
+            style={{
+              transform: hoveredProject === 0 ? 'translateY(-10px) scale(1.02)' : 'translateY(0) scale(1)',
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%), url(${projectBackgrounds[0]})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
             <header>
               <svg
                 width="50"
@@ -18,14 +49,18 @@ export function Project() {
                 role="img"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#23ce6b"
+                stroke={hoveredProject === 0 ? "#23ce6b" : "#23ce6b"}
                 strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                style={{
+                  transform: hoveredProject === 0 ? 'rotate(360deg) scale(1.1)' : 'rotate(0deg) scale(1)',
+                  transition: 'all 0.4s ease'
+                }}
               >
                 {" "}
                 <title>Folder</title>{" "}
-                <path d=""></path>{" "}
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>{" "}
               </svg>
               <div className="project-links">
                 <a
@@ -45,7 +80,9 @@ export function Project() {
               </div>
             </header>
             <div className="body">
-              <h3> Employee Management System </h3>
+              <h3 style={{ color: hoveredProject === 0 ? 'var(--green)' : '#FFF' }}>
+                Employee Management System
+              </h3>
               <p>
                 {" "}
                 Technology Used : Angular,Express,Node,MongoDb,Boostrap etc.{" "}
@@ -74,7 +111,19 @@ export function Project() {
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="flipInX">
-          <div className="project">
+          <div 
+            className="project"
+            onMouseEnter={() => handleProjectHover(1)}
+            onMouseLeave={handleProjectLeave}
+            style={{
+              transform: hoveredProject === 1 ? 'translateY(-10px) scale(1.02)' : 'translateY(0) scale(1)',
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%), url(${projectBackgrounds[1]})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
             <header>
               <svg
                 width="50"
@@ -82,10 +131,14 @@ export function Project() {
                 role="img"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#23ce6b "
+                stroke={hoveredProject === 1 ? "#23ce6b" : "#23ce6b"}
                 strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                style={{
+                  transform: hoveredProject === 1 ? 'rotate(360deg) scale(1.1)' : 'rotate(0deg) scale(1)',
+                  transition: 'all 0.4s ease'
+                }}
               >
                 <title>Folder</title>{" "}
                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>{" "}
@@ -108,7 +161,9 @@ export function Project() {
               </div>
             </header>
             <div className="body">
-              <h3> Ecommerce Website Using MEAN Stack</h3>
+              <h3 style={{ color: hoveredProject === 1 ? 'var(--green)' : '#FFF' }}>
+                Ecommerce Website Using MEAN Stack
+              </h3>
               <p>
                 {" "}
                 Technology Used : Angular,Express,Node,MongoDb,Boostrap etc.{" "}
@@ -133,7 +188,19 @@ export function Project() {
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="flipInX">
-          <div className="project">
+          <div 
+            className="project"
+            onMouseEnter={() => handleProjectHover(2)}
+            onMouseLeave={handleProjectLeave}
+            style={{
+              transform: hoveredProject === 2 ? 'translateY(-10px) scale(1.02)' : 'translateY(0) scale(1)',
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%), url(${projectBackgrounds[2]})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
             <header>
               <svg
                 width="50"
@@ -141,13 +208,17 @@ export function Project() {
                 role="img"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#23ce6b"
+                stroke={hoveredProject === 2 ? "#23ce6b" : "#23ce6b"}
                 strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                style={{
+                  transform: hoveredProject === 2 ? 'rotate(360deg) scale(1.1)' : 'rotate(0deg) scale(1)',
+                  transition: 'all 0.4s ease'
+                }}
               >
                 <title>Folder</title>
-                <path d=""></path>
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
               </svg>
               <div className="project-links">
                 <a
@@ -167,7 +238,9 @@ export function Project() {
               </div>
             </header>
             <div className="body">
-              <h3>Bank Application System</h3>
+              <h3 style={{ color: hoveredProject === 2 ? 'var(--green)' : '#FFF' }}>
+                Bank Application System
+              </h3>
               <p>
                 Technology Used : Java , SQL , JSP,Spring MVC etc
               </p>
